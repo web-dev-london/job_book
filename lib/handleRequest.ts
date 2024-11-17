@@ -9,7 +9,7 @@ export async function handleRequest<T, U>(request: NextRequest, schema: z.ZodSch
 
     const responseBody = await handle(parsed);
 
-    return NextResponse.json({ success: true, ...responseBody });
+    return NextResponse.json({ success: true, ...responseBody }, { status: 200 });
   } catch (error) {
     if (!(error instanceof Error)) {
       console.error('Invalid error', error);
